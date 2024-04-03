@@ -1,0 +1,126 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Sprites/BackFon.webp" type="Texture" id=1]
+[ext_resource path="res://Scripts/MenuManager.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Play.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Settings.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/ButtonBase.gd" type="Script" id=5]
+[ext_resource path="res://Fonts/Roboto-Black.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://addons/mrminimal_flipbook_particles/assets/smokes/smoke_03/smoke_03.tscn" type="PackedScene" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 6 )
+
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("Canvas/Viewport")
+
+[node name="Menu" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+
+[node name="Modulate" type="CanvasModulate" parent="Canvas"]
+show_behind_parent = true
+
+[node name="Back" type="TextureRect" parent="Canvas"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 227.0
+margin_right = 227.0
+rect_pivot_offset = Vector2( 383, 292 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Back2" type="TextureRect" parent="Canvas/Back"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -243.0
+margin_top = -48.0
+margin_right = 1276.0
+margin_bottom = 60.0
+rect_pivot_offset = Vector2( 383, 292 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Play" type="TextureButton" parent="Canvas"]
+margin_left = 142.0
+margin_top = 60.0
+margin_right = 298.0
+margin_bottom = 216.0
+rect_pivot_offset = Vector2( 78, 78 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 3 )
+texture_focused = ExtResource( 3 )
+expand = true
+script = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="Canvas/Play"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -37.0
+margin_top = 6.0
+margin_right = 38.0
+margin_bottom = 42.0
+rect_pivot_offset = Vector2( 38, 18 )
+custom_fonts/font = SubResource( 1 )
+text = "PLAY"
+align = 1
+valign = 1
+
+[node name="Settings" type="TextureButton" parent="Canvas"]
+margin_left = 142.0
+margin_top = 286.0
+margin_right = 298.0
+margin_bottom = 442.0
+rect_pivot_offset = Vector2( 78, 78 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 4 )
+texture_focused = ExtResource( 4 )
+expand = true
+script = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="Canvas/Settings"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -71.5
+margin_right = 71.5
+margin_bottom = 36.0
+rect_pivot_offset = Vector2( 72, 18 )
+custom_fonts/font = SubResource( 1 )
+text = "SETTINGS"
+align = 1
+valign = 1
+
+[node name="Viewport" type="Viewport" parent="Canvas"]
+size = Vector2( 512, 512 )
+transparent_bg = true
+
+[node name="Smoke_03" parent="Canvas/Viewport" instance=ExtResource( 7 )]
+
+[node name="Camera" type="Camera" parent="Canvas/Viewport"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.25482 )
+
+[node name="Smoke" type="TextureRect" parent="Canvas"]
+modulate = Color( 1, 1, 1, 0.635294 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -971.0
+margin_top = -1163.0
+margin_right = 1384.0
+margin_bottom = 1192.0
+rect_pivot_offset = Vector2( 1178, 1243 )
+mouse_filter = 2
+texture = SubResource( 2 )
+expand = true
