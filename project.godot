@@ -14,36 +14,25 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/ButtonBase.gd"
 }, {
-<<<<<<< HEAD
 "base": "Control",
 "class": "DialogBase",
 "language": "GDScript",
 "path": "res://Scripts/DialogBase.gd"
 }, {
 "base": "EditorVCSInterface",
-=======
-"base": "",
->>>>>>> ff7c989eac043df13e2c701f175e5229ae0bcddb
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://addons/godot-git-plugin/git_api.gdns"
 } ]
 _global_script_class_icons={
 "ButtonBase": "",
-<<<<<<< HEAD
 "DialogBase": "",
-=======
->>>>>>> ff7c989eac043df13e2c701f175e5229ae0bcddb
 "GitAPI": ""
 }
 
 [application]
 
-<<<<<<< HEAD
 config/name="СІЧ Launcher"
-=======
-config/name="Launcher"
->>>>>>> ff7c989eac043df13e2c701f175e5229ae0bcddb
 run/main_scene="res://Scenes/Menu.tscn"
 boot_splash/show_image=false
 boot_splash/image="res://icon.png"
@@ -57,14 +46,9 @@ Settings="*res://Scripts/GlobalSettings.gd"
 [display]
 
 window/size/width=960
-<<<<<<< HEAD
 window/size/height=575
 window/size/resizable=false
 window/size/borderless=true
-=======
-window/size/height=540
-window/size/resizable=false
->>>>>>> ff7c989eac043df13e2c701f175e5229ae0bcddb
 window/vsync/use_vsync=false
 
 [editor]
@@ -84,10 +68,7 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 quality/driver/driver_name="GLES2"
-<<<<<<< HEAD
 2d/snapping/use_gpu_pixel_snap=true
-=======
->>>>>>> ff7c989eac043df13e2c701f175e5229ae0bcddb
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
 environment/default_environment="res://default_env.tres"
