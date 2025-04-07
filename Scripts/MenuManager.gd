@@ -5,6 +5,7 @@ onready var canvas_modulate = $Canvas/Parent/Modulate
 onready var play_button = $Canvas/Parent/Play
 onready var settings_button = $Canvas/Parent/Settings
 onready var tip_button = $Canvas/Parent/Tip
+onready var title_bar = $"Canvas/Parent/Title Bar"
 
 onready var tip_ui = $Canvas/Parent/TipUI
 
@@ -28,7 +29,7 @@ func _ready():
 func play():
 	open_settings()
 	open_game()
-	get_tree().quit()
+	title_bar.exit()
 
 func animate_start():
 	var tween = create_tween()
@@ -43,7 +44,8 @@ func animate_start():
 
 
 func open_settings():
-	OS.shell_open(Settings.path_to_tracker)
+	if not Settings.is_program_running("Tracker"):
+		OS.shell_open(Settings.path_to_tracker)
 
 func open_game():
 	OS.shell_open(Settings.path_to_game)
