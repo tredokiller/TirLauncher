@@ -50,11 +50,18 @@ window/size/height=575
 window/size/resizable=false
 window/size/borderless=true
 window/vsync/use_vsync=false
+window/per_pixel_transparency/allowed=true
+window/per_pixel_transparency/enabled=true
 
 [editor]
 
 version_control_autoload_on_startup=true
 version_control_plugin_name="GitAPI"
+
+[global]
+
+transpa=false
+transparent=false
 
 [gui]
 
@@ -71,4 +78,5 @@ quality/driver/driver_name="GLES2"
 2d/snapping/use_gpu_pixel_snap=true
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+viewport/transparent_background=true
 environment/default_environment="res://default_env.tres"

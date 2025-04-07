@@ -18,17 +18,22 @@ size = 30
 font_data = ExtResource( 6 )
 
 [sub_resource type="ViewportTexture" id=2]
-viewport_path = NodePath("Canvas/Viewport")
+viewport_path = NodePath("Canvas/Parent/Viewport")
 
 [node name="Menu" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 
-[node name="Modulate" type="CanvasModulate" parent="Canvas"]
+[node name="Parent" type="Control" parent="Canvas"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 480, 289 )
+
+[node name="Modulate" type="CanvasModulate" parent="Canvas/Parent"]
 show_behind_parent = true
 
-[node name="BackBack" type="TextureRect" parent="Canvas"]
+[node name="BackBack" type="TextureRect" parent="Canvas/Parent"]
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -40,7 +45,7 @@ rect_pivot_offset = Vector2( 383, 292 )
 texture = ExtResource( 1 )
 expand = true
 
-[node name="Back" type="TextureRect" parent="Canvas"]
+[node name="Back" type="TextureRect" parent="Canvas/Parent"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 187.0
@@ -51,7 +56,7 @@ rect_pivot_offset = Vector2( 383, 292 )
 texture = ExtResource( 1 )
 expand = true
 
-[node name="Play" type="TextureButton" parent="Canvas"]
+[node name="Play" type="TextureButton" parent="Canvas/Parent"]
 margin_left = 142.0
 margin_top = 91.0
 margin_right = 298.0
@@ -67,7 +72,7 @@ texture_focused = ExtResource( 3 )
 expand = true
 script = ExtResource( 5 )
 
-[node name="Label" type="Label" parent="Canvas/Play"]
+[node name="Label" type="Label" parent="Canvas/Parent/Play"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -78,11 +83,11 @@ margin_right = 58.0
 margin_bottom = 42.0
 rect_pivot_offset = Vector2( 38, 18 )
 custom_fonts/font = SubResource( 1 )
-text = "ДО ГРИ"
+text = "ЗАПУСК"
 align = 1
 valign = 1
 
-[node name="Settings" type="TextureButton" parent="Canvas"]
+[node name="Settings" type="TextureButton" parent="Canvas/Parent"]
 margin_left = 142.0
 margin_top = 317.0
 margin_right = 298.0
@@ -96,7 +101,7 @@ texture_focused = ExtResource( 4 )
 expand = true
 script = ExtResource( 5 )
 
-[node name="Label" type="Label" parent="Canvas/Settings"]
+[node name="Label" type="Label" parent="Canvas/Parent/Settings"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -110,16 +115,16 @@ text = "НАЛАШТУВАННЯ КАМЕРИ"
 align = 1
 valign = 1
 
-[node name="Viewport" type="Viewport" parent="Canvas"]
+[node name="Viewport" type="Viewport" parent="Canvas/Parent"]
 size = Vector2( 512, 512 )
 transparent_bg = true
 
-[node name="Smoke_03" parent="Canvas/Viewport" instance=ExtResource( 7 )]
+[node name="Smoke_03" parent="Canvas/Parent/Viewport" instance=ExtResource( 7 )]
 
-[node name="Camera" type="Camera" parent="Canvas/Viewport"]
+[node name="Camera" type="Camera" parent="Canvas/Parent/Viewport"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.25482 )
 
-[node name="Tip" type="TextureButton" parent="Canvas"]
+[node name="Tip" type="TextureButton" parent="Canvas/Parent"]
 margin_left = 884.0
 margin_top = 45.0
 margin_right = 952.0
@@ -133,7 +138,7 @@ texture_focused = ExtResource( 8 )
 expand = true
 script = ExtResource( 5 )
 
-[node name="Label" type="Label" parent="Canvas/Tip"]
+[node name="Label" type="Label" parent="Canvas/Parent/Tip"]
 visible = false
 anchor_left = 0.5
 anchor_top = 1.0
@@ -148,7 +153,7 @@ text = "НАЛАШТУВАННЯ ЛАЗЕРУ"
 align = 1
 valign = 1
 
-[node name="Smoke" type="TextureRect" parent="Canvas"]
+[node name="Smoke" type="TextureRect" parent="Canvas/Parent"]
 modulate = Color( 1, 1, 1, 0.611765 )
 anchor_left = 0.5
 anchor_top = 0.5
@@ -166,24 +171,22 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ColorRect" type="ColorRect" parent="Canvas"]
-show_behind_parent = true
+[node name="ColorRect" type="ColorRect" parent="Canvas/Parent"]
 margin_left = 826.0
 margin_top = 541.0
 margin_right = 960.0
 margin_bottom = 576.0
 rect_pivot_offset = Vector2( 67, 18 )
 
-[node name="ColorRect2" type="ColorRect" parent="Canvas"]
-show_behind_parent = true
+[node name="ColorRect2" type="ColorRect" parent="Canvas/Parent"]
 margin_left = 875.0
-margin_top = 550.0
+margin_top = 552.0
 margin_right = 918.0
-margin_bottom = 596.0
+margin_bottom = 598.0
 rect_rotation = 90.0
 rect_pivot_offset = Vector2( 67, 18 )
 
-[node name="Title" type="Label" parent="Canvas"]
+[node name="Title" type="Label" parent="Canvas/Parent"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -203,7 +206,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TipUI" type="Control" parent="Canvas"]
+[node name="TipUI" type="Control" parent="Canvas/Parent"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -212,12 +215,12 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Back" type="ColorRect" parent="Canvas/TipUI"]
+[node name="Back" type="ColorRect" parent="Canvas/Parent/TipUI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.384314 )
 
-[node name="Tip1" type="TextureRect" parent="Canvas/TipUI"]
+[node name="Tip1" type="TextureRect" parent="Canvas/Parent/TipUI"]
 self_modulate = Color( 0.85098, 0.054902, 0.054902, 1 )
 margin_left = 332.0
 margin_top = 90.0
@@ -229,7 +232,7 @@ texture = ExtResource( 10 )
 expand = true
 stretch_mode = 7
 
-[node name="Text" type="Label" parent="Canvas/TipUI/Tip1"]
+[node name="Text" type="Label" parent="Canvas/Parent/TipUI/Tip1"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -245,7 +248,7 @@ custom_fonts/font = SubResource( 1 )
 text = "Запуск програми тиру разом з програмою налаштування камери"
 autowrap = true
 
-[node name="Tip2" type="TextureRect" parent="Canvas/TipUI"]
+[node name="Tip2" type="TextureRect" parent="Canvas/Parent/TipUI"]
 self_modulate = Color( 0.85098, 0.054902, 0.054902, 1 )
 margin_left = 332.0
 margin_top = 318.0
@@ -257,7 +260,7 @@ texture = ExtResource( 10 )
 expand = true
 stretch_mode = 7
 
-[node name="Text" type="Label" parent="Canvas/TipUI/Tip2"]
+[node name="Text" type="Label" parent="Canvas/Parent/TipUI/Tip2"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -273,9 +276,9 @@ custom_fonts/font = SubResource( 1 )
 text = "Запуск програми налаштування камери"
 autowrap = true
 
-[node name="Title Bar" parent="Canvas" instance=ExtResource( 12 )]
+[node name="Title Bar" parent="Canvas/Parent" instance=ExtResource( 12 )]
 
 [node name="Parallaxer" type="Node" parent="."]
 script = ExtResource( 9 )
-parallax_nodes = [ NodePath("../Canvas/Back") ]
+parallax_nodes = [ NodePath("../Canvas/Parent/Back") ]
 parallax_strengths = [ 0.2 ]

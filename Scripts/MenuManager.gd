@@ -1,15 +1,19 @@
 extends Node2D
 
-onready var canvas_modulate = $Canvas/Modulate
+onready var canvas_modulate = $Canvas/Parent/Modulate
 
-onready var play_button = $Canvas/Play
-onready var settings_button = $Canvas/Settings
-onready var tip_button = $Canvas/Tip
+onready var play_button = $Canvas/Parent/Play
+onready var settings_button = $Canvas/Parent/Settings
+onready var tip_button = $Canvas/Parent/Tip
 
-onready var tip_ui = $Canvas/TipUI
+onready var tip_ui = $Canvas/Parent/TipUI
+
+onready var parent = $Canvas/Parent
+
 
 func _ready():
 	canvas_modulate.color = Color.black
+	animate_start()
 	
 	var tween = create_tween()
 	
@@ -25,6 +29,17 @@ func play():
 	open_settings()
 	open_game()
 	get_tree().quit()
+
+func animate_start():
+	var tween = create_tween()
+	var duration = 0.5  # seconds
+	var start_size = Vector2(1, 1) 
+	OS.window_size = start_size
+	var end_size = Vector2(960, 575)  # avoid (0, 0) because some OSes freak out
+	tween.tween_property(OS, "window_size", end_size, duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+	yield(tween, "finished")
+	
+	
 
 
 func open_settings():
