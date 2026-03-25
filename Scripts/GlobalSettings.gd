@@ -3,7 +3,9 @@ extends Node
 const path_to_tracker = "Tracker.exe"
 const path_to_game = "Tir.exe"
 
+const path_to_updater = "TirUpdaterLauncher.exe"
 
+const alternative_path_folder = "Game\\"
 
 # Function to check if a program is running
 func is_program_running(process_name: String) -> bool:

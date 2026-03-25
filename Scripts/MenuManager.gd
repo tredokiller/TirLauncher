@@ -1,10 +1,15 @@
 extends Node2D
 
+
+class_name Menu
+
 onready var canvas_modulate = $Canvas/Parent/Modulate
 
 onready var play_button = $Canvas/Parent/Play
 onready var settings_button = $Canvas/Parent/Settings
 onready var tip_button = $Canvas/Parent/Tip
+onready var update_button = $Canvas/Parent/Updater
+
 onready var title_bar = $"Canvas/Parent/Title Bar"
 
 onready var tip_ui = $Canvas/Parent/TipUI
@@ -24,6 +29,7 @@ func _ready():
 	play_button.connect("button_clicked", self, "play")
 	settings_button.connect("button_clicked", self, "open_settings")
 	tip_button.connect("button_clicked", self, "open_tips")
+	update_button.connect("button_clicked", self, "open_updater")
 
 
 func play():
@@ -42,13 +48,22 @@ func animate_start():
 	
 	
 
-
 func open_settings():
-	if not Settings.is_program_running("Tracker"):
-		OS.shell_open(Settings.path_to_tracker)
+	if not Settings.is_program_running("Tracker.exe"):
+		var error = OS.shell_open(Settings.path_to_tracker)
+		if error == 7:
+			OS.shell_open(Settings.alternative_path_folder + Settings.path_to_tracker)
 
 func open_game():
-	OS.shell_open(Settings.path_to_game)
+	var error = OS.shell_open(Settings.path_to_game)
+	if error == 7:
+		OS.shell_open(Settings.alternative_path_folder + Settings.path_to_game)
+
+func open_updater():
+	var error = OS.shell_open(Settings.path_to_updater)
+	if error == 7:
+		OS.shell_open(Settings.alternative_path_folder + Settings.path_to_updater)
+
 
 func open_tips():
 	tip_ui.show()
