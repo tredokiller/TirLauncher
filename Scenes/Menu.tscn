@@ -59,9 +59,9 @@ expand = true
 
 [node name="Play" type="TextureButton" parent="Canvas/Parent"]
 margin_left = 142.0
-margin_top = 91.0
+margin_top = 317.0
 margin_right = 298.0
-margin_bottom = 247.0
+margin_bottom = 473.0
 rect_pivot_offset = Vector2( 78, 78 )
 focus_mode = 1
 enabled_focus_mode = 1
@@ -89,6 +89,7 @@ align = 1
 valign = 1
 
 [node name="Settings" type="TextureButton" parent="Canvas/Parent"]
+visible = false
 margin_left = 142.0
 margin_top = 317.0
 margin_right = 298.0
